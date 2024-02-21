@@ -13,11 +13,13 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0.1",
-	name: "First update",
+	num: "0.0.2",
+	name: "first upgrades",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+	<h3>v0.0.2</h3><br>
+		- first four upgrades
 	<h3>v0.0.1</h3><br>
 		- beginning to work on the tree`
 
@@ -42,6 +44,10 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(0)
+	if (hasUpgrade('am', 11)) gain = gain.add(1)
+	if (hasUpgrade('am', 12)) gain = gain.times(2)
+	if (hasUpgrade('am', 13)) gain = gain.times(upgradeEffect('am', 13))
+	if (hasUpgrade('am', 14)) gain = gain.times(upgradeEffect('am', 14))
 	return gain
 }
 
